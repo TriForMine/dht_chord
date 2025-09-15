@@ -287,7 +287,7 @@ pub(crate) async fn start_api_server(
                     let cancellation_token_clone = cancellation_token.clone();
 
                     tokio::spawn(async move {
-                        let connection_result = async move || -> Result<(), Box<dyn Error>> {
+                        let mut connection_result = async move || -> Result<(), Box<dyn Error>> {
                             let mut buf = [0; 1024];
 
                             let mut header_bytes = Vec::new();
